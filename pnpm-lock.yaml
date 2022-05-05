@@ -1,10 +1,18 @@
 lockfileVersion: 5.3
 
-specifiers:
-  fast-glob: ^3.2.11
+importers:
 
-dependencies:
-  fast-glob: 3.2.11
+  .:
+    specifiers:
+      '@types/node': ^17.0.31
+    devDependencies:
+      '@types/node': 17.0.31
+
+  packages/vue-convention-routes:
+    specifiers:
+      fast-glob: ^3.2.11
+    dependencies:
+      fast-glob: 3.2.11
 
 packages:
 
@@ -28,6 +36,10 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
     dev: false
+
+  /@types/node/17.0.31:
+    resolution: {integrity: sha512-AR0x5HbXGqkEx9CadRH3EBYx/VkiUgZIhP4wvPn/+5KIsgpNoyFaRlVe0Zlx9gRtg8fA06a9tskE2MSN7TcG4Q==}
+    dev: true
 
   /braces/3.0.2:
     resolution: {integrity: sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==}
@@ -68,7 +80,7 @@ packages:
     dev: false
 
   /is-extglob/2.1.1:
-    resolution: {integrity: sha512-SbKbANkN603Vi4jEZv49LeVJMn4yGwsbzZworEoyEiutsN3nJYdbO36zfhGJ6QEDpOZIFkDtnq5JRxmvl3jsoQ==}
+    resolution: {integrity: sha1-qIwCU1eR8C7TfHahueqXc8gz+MI=}
     engines: {node: '>=0.10.0'}
     dev: false
 
