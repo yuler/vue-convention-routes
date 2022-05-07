@@ -1,11 +1,11 @@
 {
-  "name": "vue-convention-routes",
+  "name": "unplugin-vue-routes",
   "version": "0.0.0",
   "description": "Convention routes",
   "main": "src/index.js",
   "author": "is.yuler@gmail.com",
   "license": "MIT",
-  "repository": "yuler/vue-convention-routes",
+  "repository": "yuler/unplugin-vue-routes",
   "keywords": [
     "vue",
     "convention",

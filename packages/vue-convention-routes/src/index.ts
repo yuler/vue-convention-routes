@@ -1,6 +1,6 @@
-import glob from 'fast-glob'
-// import fs from 'node:fs/promises'
-// import path from 'node:path'
+import fg from 'fast-glob'
+import path from 'path'
+import {pascalCase} from '@shared/index'
 
 export default async function generate() {
   const patterns = ['*./*.layout.vue', '*/*.route.vue', '!*./*.route.vue']
@@ -13,12 +13,27 @@ export default async function generate() {
   // const dirs = dirent.filter(dirent => dirent.isDirectory())
   // console.log(dirs)
 
-  const routes = glob.sync(patterns, {
+  const files = await fg(patterns, {
     cwd: input,
+    deep: 2,
     onlyFiles: true,
   })
 
-  console.log(routes)
-}
+  const routes = files.map(route => path.dirname(route))
 
-generate()
+  let code = ``
+
+  for (const route of routes) {
+    code += `{
+      name: '${pascalCase(route)}',
+      path: '${route}',
+      component: () => import('@/pages/${route}')
+    },`
+  }
+
+  return `
+    export default [
+      ${code}
+    ]
+  `
+}
